@@ -27,8 +27,25 @@ function getInputValue(otherNumberId,price,IsIncreasing){
     // products calculation 
     const productTotalText = document.getElementById(otherNumberId+'-total');
      productTotalText.innerText = values * price ;
+     getCalculation()
 }
-calculation function
+// quantity number function
+function getInputValueId(product){
+    const numbers = document.getElementById(product + '-number');
+    const numbersValue = parseInt(numbers.value);
+    return numbersValue;
+}
+// calculation function
 function getCalculation(){
+    // calculate
+    const phoneTotal = getInputValueId('phone')*1219;
+    const caseTotal = getInputValueId('case')*59;
+    const subTotal = phoneTotal + caseTotal;
+    const tax = subTotal /10;
+    const totalAmount = subTotal + tax;
+    // value set
+    document.getElementById('sub-total').innerText = subTotal;
+    document.getElementById('total-price').innerText = totalAmount;
+    document.getElementById('tax-amount').innerText = tax.toFixed(2);
 
 } 
